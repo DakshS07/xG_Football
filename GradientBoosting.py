@@ -104,7 +104,9 @@ print("=" * 30)
 from sklearn.metrics import confusion_matrix
 confusion_matrix(train_y, train_predictions)
 
-# testing for various shots:
+# testing for various shots (using predict_proba to get exact probabilities):
+
+# clf.predict_proba([[situation, body part, location, assist type]]
 
 # xG for Kante header
 print(clf.predict_proba([[1, 3, 12, 2]]))
@@ -123,11 +125,13 @@ for i in range(811264, 811375):
         print(events.iloc[i][:])
 
 # sum xG for Real Madrid shots in 2-1 win over Barca in 2016
+# output is total xG for Real Madrid in the match
 
-print(clf.predict_proba([[1, 1, 3, 0]])+clf.predict_proba([[1, 1, 10, 2]])+clf.predict_proba([[1, 1, 11, 0]])
+print((clf.predict_proba([[1, 1, 3, 0]])+clf.predict_proba([[1, 1, 10, 2]])+clf.predict_proba([[1, 1, 11, 0]])
       +clf.predict_proba([[1, 2, 11, 0]])+clf.predict_proba([[1, 1, 15, 1]])+ clf.predict_proba([[1, 2, 15, 1]])
       +clf.predict_proba([[3, 1, 15, 2]])+clf.predict_proba([[4, 1, 15, 1]]) + clf.predict_proba([[1, 2, 3, 1]])
       + clf.predict_proba([[1, 1, 3, 2]])+clf.predict_proba([[3, 1, 3, 2]]) + clf.predict_proba([[1, 1, 3, 4]])
-      + clf.predict_proba([[1, 2, 10, 1]])+clf.predict_proba([[1, 2, 9, 0]]) + clf.predict_proba([[1, 1, 9, 1]]))
+      + clf.predict_proba([[1, 2, 10, 1]])+clf.predict_proba([[1, 2, 9, 0]]) + clf.predict_proba([[1, 1, 9, 1]]))[0][1])
+
 
 
