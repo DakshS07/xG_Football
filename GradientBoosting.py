@@ -130,4 +130,4 @@ print(clf.predict_proba([[1, 1, 3, 0]])+clf.predict_proba([[1, 1, 10, 2]])+clf.p
       + clf.predict_proba([[1, 1, 3, 2]])+clf.predict_proba([[3, 1, 3, 2]]) + clf.predict_proba([[1, 1, 3, 4]])
       + clf.predict_proba([[1, 2, 10, 1]])+clf.predict_proba([[1, 2, 9, 0]]) + clf.predict_proba([[1, 1, 9, 1]]))
 
-#
+
